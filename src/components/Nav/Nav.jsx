@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 // import PropTypes from 'prop-types'
-// import { withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 
 
 export class Nav extends Component {
   render() {
-    // if (window.location.pathname === '/') {
-    //   return null
-    // }
+    console.log(this.props.location.pathname)
+    if (this.props.location.pathname === '/') {
+      return null
+    }
   
     return (
       <div>
@@ -27,5 +28,4 @@ export class Nav extends Component {
   }
 }
 
-// export default withRouter(connect()(Nav))
-export default Nav
+export default withRouter(Nav)

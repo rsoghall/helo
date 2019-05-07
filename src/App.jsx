@@ -6,7 +6,6 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Form from "./components/Form/Form";
 import Post from "./components/Post/Post";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-// import {withRouter} from 'react-router-redux'
 
 function App() {
   // const Nav = (props) => {

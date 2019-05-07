@@ -13,6 +13,14 @@ const {
 } = process.env;
 
 app.use(express.json());
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: SESSION_SECRET,
+  cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 365
+  }
+}))
 
 massive(CONNECTION_STRING)
   .then((db) => {
@@ -29,14 +37,6 @@ massive(CONNECTION_STRING)
   app.listen(SERVER_PORT, () => console.log(`Running on ${SERVER_PORT}`));
 });
 
-app.use(session({
-  resave: false,
-  saveUninitialized: false,
-  secret: SESSION_SECRET,
-  cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 365
-  }
-}))
 
 app.post('/auth/register', ctrl.register)
 app.post('/auth/login', ctrl.login)

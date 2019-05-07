@@ -10,6 +10,7 @@
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "massive": "^5.8.0",
+    "nodemon": "^1.19.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -38,8 +39,21 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "main": "server/index.js",
-    "proxy": "http://localhost:4429"
-  }
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server/index.js",
+  "proxy": "http://localhost:4429",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsoghall/helo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsoghall/helo/issues"
+  },
+  "homepage": "https://github.com/rsoghall/helo#readme"
+
 }

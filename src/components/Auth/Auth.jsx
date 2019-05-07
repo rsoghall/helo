@@ -1,36 +1,36 @@
-import React, { Component } from 'react'
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
 export class Auth extends Component {
   constructor() {
     super();
     this.state = {
-      userName: "",
+      email: "",
       password: ""
-    }
+    };
   }
 
-  login = async (e) => {
-    e.preventDefault()
+  async login (){
     try {
-      const { userName, password } = this.state
-      const res = await axios.post("/auth/login", { userName, password })
-      this.props.history.push(`/dashboard`)
+      const { email, password } = this.state;
+      const res = await axios.post('/auth/login', { email, password });
+      console.log(res)
+      if (res.data.loggedIn) this.props.history.push(`/dashboard`);
     } catch (error) {
-      alert("Wrong Username or Password")
+      alert("Wrong Username or Password");
     }
-    }
+  };
   render() {
     return (
       <div>
         Auth
-        <form>
           <div>
             <input
-              onChange={e => this.setState({ userName: e.target.value })}
-              value={this.state.userName}
+              onChange={e => this.setState({ email: e.target.value })}
+              value={this.state.email}
               type="text"
-            placeholder="User Name"/>
+              placeholder="Email"
+            />
           </div>
           <div>
             <input
@@ -41,16 +41,14 @@ export class Auth extends Component {
             />
           </div>
           <div>
-            <button type="submit">Login</button>
+          <button onClick={()=> this.login()}type="submit">Login</button>
           </div>
           <div>
             <button type="register">Register</button>
           </div>
-
-        </form>
       </div>
-    )
+    );
   }
 }
 
-export default Auth
+export default Auth;
